@@ -2,7 +2,7 @@ name: minui
 description: A new Flutter package project.
 version: 0.0.1
 author: zhoushaw codingzx@gmail.com
-homepage: https://github.com/zhoushaw
+homepage: https://github.com/zhoushaw/minui
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
