@@ -8,6 +8,19 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+  List mList = new List();
+
+  @override
+  void initState() {
+    super.initState();
+    mList.add(1);
+    mList.add(2);
+    mList.add(2);
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -20,8 +33,35 @@ class _HomeState extends State<Home> {
               padding: EdgeInsets.fromLTRB(0, 20, 0, 20),
               child: Image.asset('assets/logo.png',width: 60,),
             ),
-            Text('基于flutter的组件库，简洁、轻量、工具化',style: TextStyle(color: Color(0xFF8e8e8e))),
-            
+            Padding(
+              padding: EdgeInsets.only(bottom: 20),
+              child: Text('基于flutter的组件库，简洁、轻量、工具化',style: TextStyle(color: Color(0xFF8e8e8e)))
+            ),
+            ConstrainedBox(
+              constraints: BoxConstraints(
+                maxWidth: 300
+              ),
+              child: ExpansionPanelList(
+                expansionCallback: (index,bol){
+                  //调用内部方法
+                  // _setCurrentIndex(index, bol);
+                },
+                children: mList.map((index){
+                    //返回一个组成的ExpansionPanel
+                    return ExpansionPanel(
+                      headerBuilder: (context,isExpanded){  
+                        return ListTile(
+                          title: Text('This is No.$index'),
+                        );
+                      },
+                      body: ListTile(
+                        title: Text('expansion no.$index'),
+                      ),
+                      isExpanded: true
+                    );
+                }).toList()
+              )
+            )
           ],
         ),
       )
