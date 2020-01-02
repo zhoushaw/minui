@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './tabs/home.dart';
 import './tabs/about.dart';
+import './toast.dart';
 
 
 void main() => runApp(MyApp());
@@ -13,6 +14,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.white,
       ),
+      routes: {
+        'toast': (context)=>Toast()
+      },
       home: MyHomePage(title: 'MinUI'),
     );
   }
